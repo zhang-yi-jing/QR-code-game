@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Detect : MonoBehaviour
 {
@@ -135,18 +136,32 @@ public class Detect : MonoBehaviour
                         Debug.Log("目标物体在扫描区内！");
                         isscanning.SetActive(false);
                         isfind.SetActive(true);
+
+
                         if (Input.GetMouseButtonDown(0))
                         {
-                            Debug.Log(hitObject);
-                            if (!isShow)
+                            if (_interObject.name == "Start")
                             {
-                                isShow = true;
-                                _interObject.canvas.SetActive(true);
+                                SceneManager.LoadScene("level2");
                             }
-                            
-                            
+                            else
+                            {
+                                if (!isShow)
+                                {
+                                    isShow = true;
+                                    _interObject.canvas.SetActive(true);
+                                }
 
+
+
+                            }
+                            Debug.Log(hitObject);
                         }
+                       
+                        
+
+
+                       
 
 
                     }

@@ -60,4 +60,9 @@ public class PasueMenu : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
+    public void loadScene(string scenename)
+    {
+        
+        SceneManager.LoadScene(scenename);
+    }
 }
