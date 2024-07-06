@@ -23,12 +23,19 @@ public class Detect : MonoBehaviour
     public GameObject isscanning;
 
     public float maxDetectionDistance = 10f;
+    public static bool isDecting = false;
+    public static bool isShow = false;
+
+    private GameObject canvas;
+
     void Start()
     {
         
         phone.SetActive(false);
         isscanning.SetActive(true);
         isfind.SetActive(false);
+        isDecting = false;
+        isShow = false;
     }
 
 
@@ -37,8 +44,26 @@ public class Detect : MonoBehaviour
         // 当按下鼠标左键时进行检测
         if (phone.activeSelf)
         {
+                
+            if (isShow)
+            {
+                if (Input.anyKeyDown)
+                {
+                    canvas.SetActive(false);
+                    isShow = false;
+                }
+
+
+
+            }
+            else
+            {
                 DetectObjectUnderMouse();
-            
+            }
+
+
+
+
         }
 
 
@@ -47,10 +72,10 @@ public class Detect : MonoBehaviour
 
        
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)&&!isShow)
         {
             phone.SetActive(!phone.activeSelf);
-
+            isDecting = !isDecting;
 
         }
     }
@@ -71,6 +96,7 @@ public class Detect : MonoBehaviour
             hitObject = hit.collider.gameObject;
             InterObject _interObject = hitObject.GetComponent<InterObject>();
             float hitDistance = hit.distance;
+            canvas = _interObject.canvas;
             //Debug.Log("Hit distance: " + hitDistance);
             if (hitDistance <= maxDetectionDistance)
             {
@@ -84,6 +110,13 @@ public class Detect : MonoBehaviour
                         if (Input.GetMouseButtonDown(0))
                         {
                             Debug.Log(hitObject);
+                            if (!isShow)
+                            {
+                                isShow = true;
+                                _interObject.canvas.SetActive(true);
+                            }
+                            
+                            
 
                         }
 
@@ -123,6 +156,7 @@ public class Detect : MonoBehaviour
             // 获取所有目标标签的物体并调用 OnPointerExit
             if (hitObject != null)
             {
+                canvas = null;
                 hitObject = null;
 
             }

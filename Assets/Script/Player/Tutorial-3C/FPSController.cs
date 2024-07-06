@@ -68,6 +68,7 @@ public class FPSController : MonoBehaviour
        
          cameraRoot.localRotation = Quaternion.Euler(rotationY, 0, 0);
          transform.localRotation = Quaternion.Euler(0, rotationX, 0);
+
          transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
         
 

@@ -25,14 +25,20 @@ public class Move : MonoBehaviour
     void Update()
     {
         // 计算物体的新位置
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, endPosition, step);
-
-        // 检查物体是否到达终点
-        if (transform.position == endPosition)
+        if (!Detect.isDecting && !Detect.isShow)
         {
-            // 重置物体位置到起点
-            transform.position = startPosition;
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, endPosition, step);
+
+            // 检查物体是否到达终点
+            if (transform.position == endPosition)
+            {
+                // 重置物体位置到起点
+                transform.position = startPosition;
+            }
         }
+
+
+       
     }
 }
