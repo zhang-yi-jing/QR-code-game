@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Move : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -36,9 +36,18 @@ public class Move : MonoBehaviour
                 // 重置物体位置到起点
                 transform.position = startPosition;
             }
+
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ReloadScene();
         }
 
 
-       
+    }
+    void ReloadScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
