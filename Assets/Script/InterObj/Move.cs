@@ -38,10 +38,7 @@ public class Move : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ReloadScene();
-        }
+       
 
 
     }
