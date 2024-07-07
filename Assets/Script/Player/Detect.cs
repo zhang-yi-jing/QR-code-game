@@ -389,15 +389,19 @@ public class Detect : MonoBehaviour
     public void Gamewin()
     {
         Debug.Log("win");
-
-
+        SceneManager.LoadScene("levelWin");
+        // 显示鼠标光标
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
     }
     public void Gamelose()
     {
         Debug.Log("lose");
-
-
+        SceneManager.LoadScene("levelLose");
+        // 显示鼠标光标
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
     }
 
