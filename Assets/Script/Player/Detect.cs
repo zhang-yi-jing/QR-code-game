@@ -36,17 +36,17 @@ public class Detect : MonoBehaviour
 
     public enum Item
     {
-        Potato1,
-        Tomato1,
-        Cabbage1,
-        Garlic1,
-        Onion1,
-        Apple1,
-        Watermelon1,
-        Orange1,
-        Grapes1,
-        Strawberry1,
-        sum,
+        Potato1,//0
+        Tomato1,//1
+        Cabbage1,//2
+        Garlic1,//3
+        Onion1,//4
+        Apple1,//5
+        Watermelon1,//6
+        Orange1,//7
+        Grapes1,//8
+        Strawberry1,//9
+        sum,//10
         Count // ×ÜÊý
     }
     private int[] itemQuantities;
@@ -267,7 +267,7 @@ public class Detect : MonoBehaviour
                 Debug.Log("1" );
                 if(Input.GetKeyDown(KeyCode.E) && _interObject.name== "bingxiang" && itemQuantities[10] != 0)
                 {
-                    if (itemQuantities[0]==3)
+                    if (itemQuantities[0]==1 && itemQuantities[6] == 1 && itemQuantities[7] == 1)
                     {
                         Gamewin();
 

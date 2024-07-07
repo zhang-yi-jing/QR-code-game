@@ -21,7 +21,7 @@ public class EventSystem : MonoBehaviour
         {
             if (instance != this)
             {
-                Destroy(instance);
+                Destroy(gameObject);
             }
         }
         DontDestroyOnLoad(gameObject);

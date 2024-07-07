@@ -57,12 +57,19 @@ public class PasueMenu : MonoBehaviour
 
     public void ReloadScene()
     {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
     public void loadScene(string scenename)
     {
-        
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+
         SceneManager.LoadScene(scenename);
     }
 }
